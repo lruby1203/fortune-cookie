@@ -13,17 +13,18 @@ def getRandomFortune():
 
 	return fortunes[index]
 
-#def lucky_numbers():
-#	numbers = []
-#	number_sentence = 'Your lucky numbers are: '
-#	for index2 in range(5):
-#		numbers[index2] = random.randint(1, 100)
+def lucky_numbers():
+	numbers = []
+	number_sentence = 'Your lucky numbers are: '
+	for index in range(5):
+		numbers.append(str(random.randint (1, 100)))
 #		if index > 0:
 #			for num in numbers:
 #				if num == numbers[index]:
+#					match = True
 #					numbers[index] = random.randint(1, 100)
-#		number_sentence += numbers[index2] + " "
-#	return number_sentence
+		number_sentence += numbers[index] + " "
+	return number_sentence
 
 class MainHandler(webapp2.RequestHandler):
 
@@ -33,8 +34,8 @@ class MainHandler(webapp2.RequestHandler):
 		fortune = "<strong>" + getRandomFortune() + "</strong>"
 		fortune_sentence = "Your fortune: " + fortune
 		fortune_paragraph = "<p>" + fortune_sentence + "</p>"
-		lucky_number = str(random.randint(1, 100))
-		numbers = "<strong>" + lucky_number + "</strong>"
+#		lucky_number = str(random.randint(1, 100))
+		numbers = "<strong>" + lucky_numbers() + "</strong>"
 		number_sentence = 'Your lucky numbers are: ' + numbers
 		number_paragraph = "<p>" + number_sentence + "</p>"
 
